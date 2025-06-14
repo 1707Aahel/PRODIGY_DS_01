@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Extract the dataset from the CSV file
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan', 
+             'Fiona', 'George', 'Hannah', 'Ian', 'Julia'],
+    'Age': [25, 34, 22, 29, 31, 28, 35, 30, 24, 27],
+    'Gender': ['Female', 'Male', 'Male', 'Female', 'Male', 
+               'Female', 'Male', 'Female', 'Male', 'Female']
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+# Bar chart: Gender distribution (Categorical Variable)
+plt.figure(figsize=(6, 4))
+sns.countplot(x='Gender', data=df, palette='Set3')
+plt.title('Gender Distribution')
+plt.xlabel('Gender')
+plt.ylabel('Count')
+plt.tight_layout()
+plt.show()
+
+# Histogram: Age distribution (Continuous Variable)
+plt.figure(figsize=(6, 4))
+sns.histplot(df['Age'], bins=5, kde=True, color='cornflowerblue')
+plt.title('Age Distribution')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.tight_layout()
+plt.show()
